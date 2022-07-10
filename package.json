@@ -1,0 +1,22 @@
+{
+  "name": "static-files",
+  "version": "1.0.0",
+  "description": "Serve static files",
+  "main": "static-files.js",
+  "scripts": {
+    "start": "node static-files.js"
+  },
+  "author": "FlowerForWar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
