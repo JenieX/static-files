@@ -2,7 +2,7 @@
 // "start": "node static-files.js"
 // npm install --save-dev eslint
 // eslint --init
-// pm2 start "D:\Backup\My Doc\GitHub\static-files"
+// pm2 start "D:\GitHub\static-files"
 
 const axios = require('axios');
 const fs = require('fs-extra');
@@ -27,7 +27,7 @@ app.get('/user-script/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs.readFileSync(`D:\\Backup\\My Doc\\GitHub\\${folder}\\${folder}.user.js`).toString();
+  const userscript = fs.readFileSync(`D:\\GitHub\\${folder}\\${folder}.user.js`).toString();
   response.type('.js').send(userscript);
 });
 
@@ -37,7 +37,7 @@ app.get('/user-script-grunt/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs.readFileSync(`D:\\Backup\\My Doc\\GitHub\\${folder}\\dist\\${folder}.user.js`).toString();
+  const userscript = fs.readFileSync(`D:\\GitHub\\${folder}\\dist\\${folder}.user.js`).toString();
   response.type('.js').send(userscript);
 });
 
