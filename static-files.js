@@ -27,7 +27,9 @@ app.get('/user-script/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs.readFileSync(`D:\\GitHub\\${folder}\\${folder}.user.js`).toString();
+  const userscript = fs
+    .readFileSync(`D:\\GitHub\\${folder}\\${folder}.user.js`)
+    .toString();
   response.type('.js').send(userscript);
 });
 
@@ -37,7 +39,23 @@ app.get('/user-script-grunt/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs.readFileSync(`D:\\GitHub\\${folder}\\dist\\${folder}.user.js`).toString();
+  const userscript = fs
+    .readFileSync(`D:\\GitHub\\${folder}\\dist\\${folder}.user.js`)
+    .toString();
+  response.type('.js').send(userscript);
+});
+
+// http://192.168.1.39:3905/js?repo=tesr-xxx&_=.js
+app.get('/js/', async ({ query: { repo } }, response) => {
+  if (!repo) {
+    response.status(400).send('No repository provided');
+    return;
+  }
+  const userscript = fs
+    .readFileSync(
+      `D:\\Git-Projects\\user-scripts\\${repo}\\dist\\${repo}.user.js`
+    )
+    .toString();
   response.type('.js').send(userscript);
 });
 
