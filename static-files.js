@@ -27,10 +27,10 @@ app.get('/user-script/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs
+  const userScript = fs
     .readFileSync(`D:\\GitHub\\${folder}\\${folder}.user.js`)
     .toString();
-  response.type('.js').send(userscript);
+  response.type('.js').send(userScript);
 });
 
 // http://192.168.1.39:3905/user-script-grunt?folder=userscript-modules-template&_=.js
@@ -39,24 +39,22 @@ app.get('/user-script-grunt/', async ({ query: { folder } }, response) => {
     response.status(400).send('No folder provided');
     return;
   }
-  const userscript = fs
+  const userScript = fs
     .readFileSync(`D:\\GitHub\\${folder}\\dist\\${folder}.user.js`)
     .toString();
-  response.type('.js').send(userscript);
+  response.type('.js').send(userScript);
 });
 
-// http://192.168.1.39:3905/js?repo=tesr-xxx&_=.js
+// http://192.168.1.39:3905/js?repo=userscript-gulp-template&_=.js
 app.get('/js/', async ({ query: { repo } }, response) => {
   if (!repo) {
     response.status(400).send('No repository provided');
     return;
   }
-  const userscript = fs
-    .readFileSync(
-      `D:\\Git-Projects\\user-scripts\\${repo}\\dist\\${repo}.user.js`
-    )
+  const userScript = fs
+    .readFileSync(`D:\\Git-Projects\\user-js\\${repo}\\dist\\${repo}.user.js`)
     .toString();
-  response.type('.js').send(userscript);
+  response.type('.js').send(userScript);
 });
 
 app.listen(app.get('port'), () => {
